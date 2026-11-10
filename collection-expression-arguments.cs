@@ -7,19 +7,26 @@ string[] days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
 // begin-snippet: simple-collection-without-arguments
 var simpleDayList1 = new List<string>(days.Length);
 simpleDayList1.AddRange(days[0..3]);
-
-List<string> simpleDayList2 = [..days[0..3]];
-Console.WriteLine(simpleDayList2.Capacity);
+Console.WriteLine($"Capacity of simpleDayList1: {simpleDayList1.Capacity}");
 // end-snippet
+
+// begin-snippet: simple-collection-without-addrange
+List<string> simpleDayList2 = [..days[0..3]];
+Console.WriteLine($"Capacity of simpleDayList2: {simpleDayList2.Capacity}");
+// end-snippet
+
+List<string> simpleDayList3 = new List<string>(days.Length);
+simpleDayList3.AddRange(days[0..3]);
+Console.WriteLine($"Capacity of simpleDayList3: {simpleDayList3.Capacity}");
 
 // begin-snippet: simple-collection-expression-with-arguments
 List<string> dayList = [with(capacity: days.Length), ..days[0..3]];
-Console.WriteLine(dayList.Capacity);
+Console.WriteLine($"Capacity of dayList: {dayList.Capacity}");
 // end-snippet
 
 // begin-snippet: custom-collection-expression-with-arguments
 CustomCollection customCollection = [with(capacity: days.Length, tag: "Weekdays"), ..days];
-Console.WriteLine(customCollection.Tag);
+Console.WriteLine($"Tag of customCollection: {customCollection.Tag}");
 // end-snippet
 
 // begin-snippet: custom-collection-class
