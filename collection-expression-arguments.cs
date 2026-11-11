@@ -24,6 +24,12 @@ List<string> dayList = [with(capacity: days.Length), ..days[0..3]];
 Console.WriteLine($"Capacity of dayList: {dayList.Capacity}");
 // end-snippet
 
+// This is what dotPeek decompiled the above code into when symbols were removed
+// begin-snippet: equivalent-collection
+List<string> equivalentDayList = new List<string>(days.Length);
+equivalentDayList.AddRange((IEnumerable<string>)days[0..3]);
+// end-snippet
+
 // begin-snippet: custom-collection-expression-with-arguments
 CustomCollection customCollection = [with(capacity: days.Length, tag: "Weekdays"), ..days];
 Console.WriteLine($"Tag of customCollection: {customCollection.Tag}");
