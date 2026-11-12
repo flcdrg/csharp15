@@ -36,7 +36,6 @@ switch (myTool)
 public abstract record Pet;
 public record Dog : Pet;
 public record Cat : Pet;
-
 // end-snippet
 
 // begin-snippet: after-union-types
