@@ -32,6 +32,19 @@ switch (myTool)
 }
 // end-snippet
 
+// begin-snippet: switch-expression-with-union-types
+var t = myTool switch 
+{
+    Hammer h => $"Hammer: {h.Type}",
+    Screwdriver s => $"Screwdriver: {s.Type}",
+    Drill d => d switch
+    {
+        PowerDrill pd => $"PowerDrill: Hammer={pd.Hammer}, Reversible={pd.Reversible}, Cordless={pd.Cordless}",
+        //ManualDrill md => "ManualDrill"
+    }
+};
+// end-snippet
+
 // begin-snippet: before-union-types
 public abstract record Pet;
 public record Dog : Pet;
